@@ -2,9 +2,10 @@ import React from 'react';
 
 
  const App = () => {
+        const saludo = 'holaaaa lali te amoooooo'
     return (
         
-           <h1> Holiiis</h1>
+           `${saludo} Holiiis ${saludo}${saludo}${saludo}${saludo}${saludo}${saludo}${saludo}${saludo}${saludo}`
         
     );
 }
