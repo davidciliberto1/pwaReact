@@ -1,21 +1,27 @@
 import React, { useState, Component } from "react";
 import Hols from "./componentes/saludos";
 import Contador from "./componentes/contador";
-function conteoInicial() {
-  console.log('corre funcion')
-  return 4  
-}
+// function conteoInicial() {
+//   console.log('corre funcion')
+  
+//   return 0  
+// }
 const App = () => {
   const saludo = "holaaaa lali te amoooooo";
-  const [monto, setMonto] = useState(() => (4));
-  const [cuenta, setCuenta] = useState(() => conteoInicial());
+  const [state, setState] = useState({
+    monto: '', 
+    theme: 'blue'
+    })
+    const monto = state.monto
+    const theme = state.theme
+  const [cuenta, setCuenta] = useState(0);
 
   function decreaseCuenta() {
     setCuenta(cuenta - 1);
   }
 
   function aumentaCuenta() {
-    setCuenta(cuenta + 1);
+    setCuenta(prevCuenta => prevCuenta + 1);
   }
 
   const handleSubmit = (event) => {
@@ -23,9 +29,14 @@ const App = () => {
   }
 
   const cambiaState = (event) => {
-         setMonto(event.target.monto);
+         setState(prevState => {
+           return {
+             ...prevState,
+             monto: state.monto
+           }
+         });
   }
-  
+  console.log(cuenta)
   return (
     <div>
       <button onClick={decreaseCuenta}>-</button>
@@ -39,7 +50,7 @@ const App = () => {
       </form>
        <ul>
               <li>
-  
+  {monto}
               </li>
        </ul>
 
