@@ -29,6 +29,7 @@ const App = () => {
   }
 
   const cambiaState = (event) => {
+      event.preventDefault()
          setState(prevState => {
            return {
              ...prevState,
